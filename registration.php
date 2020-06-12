@@ -8,21 +8,31 @@
 <body>
 <?php
 require('db.php');
-// If form submitted, insert values into the database.
 if (isset($_REQUEST['email'])){
-        // removes backslashes
- $role = stripslashes($_REQUEST['role']);
  
- echo $role;
-        //escapes special characters in a string
  $email = stripslashes($_REQUEST['email']);
  $email = $conn->real_escape_string($email);
  $password = stripslashes($_REQUEST['password']);
  $password = $conn->real_escape_string($password);
+
+ $nome = stripslashes($_REQUEST['nome']);
+ $nome = $conn->real_escape_string($nome);
+ $cognome = stripslashes($_REQUEST['cognome']);
+ $cognome = $conn->real_escape_string($cognome);
+ $cf = stripslashes($_REQUEST['cf']);
+ $cf = $conn->real_escape_string($cf);
+ $indirizzo = stripslashes($_REQUEST['indirizzo']);
+ $indirizzo = $conn->real_escape_string($indirizzo);
+ $citta = stripslashes($_REQUEST['citta']);
+ $citta = $conn->real_escape_string($citta);
+ $cap = stripslashes($_REQUEST['cap']);
+ $cap = $conn->real_escape_string($cap);
+ $stato = stripslashes($_REQUEST['stato']);
+ $stato = $conn->real_escape_string($stato);
+
  $trn_date = date("Y-m-d H:i:s");
-        $query = "INSERT into `users` (password, email)
-VALUES ('".md5($password)."', '$email')";
-        $result = $conn->query($query);
+        $query = 'INSERT into `cliente` (cod_fisc, nome, cognome, email, password, indirizzo, citta, cap, stato, tipo) VALUES ("' . $cf . '", "' . $nome . '", "' . $cognome . '", "' . $email . '", ' . 'md5("' . $password . '"), "' . $indirizzo . '", "' . $citta . '", "' . $cap . '", "' . $stato . '", "STAFF")';
+		$result = $conn->query($query);
         if($result){
             echo "<div class='form'>
 <h3>Ti sei registrato con successo!</h3>
@@ -30,7 +40,7 @@ VALUES ('".md5($password)."', '$email')";
         }
     }else{
 ?>
-		<div id="parent" >
+		<div id="parentReg" >
 			<form id="child" action="" method="post" name="registration">
 				<table align="center" cellpadding="2" cellspacing="2" border="0">
 					<tr>
@@ -47,6 +57,31 @@ VALUES ('".md5($password)."', '$email')";
 					<tr>
 						<td>
                                                         <input type="text" name="cognome" placeholder="Cognome" required />
+						</td>
+					</tr>
+					<tr>
+						<td>
+                                                        <input type="text" name="cf" placeholder="Codice Fiscale" required />
+						</td>
+					</tr>
+										<tr>
+						<td>
+                                                        <input type="text" name="indirizzo" placeholder="Indirizzo" required />
+						</td>
+					</tr>
+										<tr>
+						<td>
+                                                        <input type="text" name="citta" placeholder="Città" required />
+						</td>
+					</tr>
+										<tr>
+						<td>
+                                                        <input type="text" name="cap" placeholder="CAP" />
+						</td>
+					</tr>
+										<tr>
+						<td>
+                                                        <input type="text" name="stato" placeholder="Stato" required />
 						</td>
 					</tr>
 					<tr>

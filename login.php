@@ -19,8 +19,6 @@ if (isset($_POST['email']))
     $password = stripslashes($_REQUEST['password']);
     $password = $conn->real_escape_string($password);
 
-    echo $email . " " . $password;
-
     $query = "SELECT * FROM `cliente` WHERE email='$email'
 		and password='" . md5($password) . "'";
     $result = $conn->query($query) or die($conn->sqlstate);
