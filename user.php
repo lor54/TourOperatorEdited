@@ -61,7 +61,7 @@
     <body>
         <?php include("includes/navbar.php"); ?>
         <div class="w3-row" style="margin-top: 10%">
-            <div class="search-container">
+            <div class="search-container center">
                 <form action="/search.php">
                     <input type="text" placeholder="Cerca.." name="search">
                     <button type="submit"><i class="fa fa-search"></i></button>
@@ -69,13 +69,6 @@
             </div>
 
             <div class="w3-col s7 w3-center" style="margin-left: 4%; padding-left: 10%; border-style: solid;">
-            </div>
-            
-            <div class="w3-col s4 w3-center" style="padding-bottom: 5.6%; border-style: solid;">
-                <h1>Fatturato Totale: </h1>
-                <span class="w3-tag w3-padding w3-round-large w3-red w3-center">
-                    <p class="w3-jumbo"><?php echo $fatturato; ?></p>
-                </span>
             </div>
         </div>
         <?php include("includes/footer.php"); ?>
