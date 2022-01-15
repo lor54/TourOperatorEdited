@@ -35,38 +35,22 @@
         <meta charset="utf-8">
         <title>Dashboard - Page Sicura</title>
         <link rel="stylesheet" href="css/style.css" />
-        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-        <script type="text/javascript">
-            // Load google charts
-            google.charts.load('current', {'packages':['corechart']});
-            google.charts.setOnLoadCallback(drawChart);
-
-            // Draw the chart and set the chart values            
-            function drawChart() {
-                var s = '<?php echo json_encode($titoli); ?>';
-                var obj = JSON.parse(s);
-                obj.unshift(['Viaggio', 'Numero di Persone']);
-                console.log(obj);
-                var data = google.visualization.arrayToDataTable(obj);
-
-                // Optional; add a title and set the width and height of the chart
-                var options = {'title':'Passeggeri per Viaggio', 'width':550, 'height':400};
-
-                // Display the chart inside the <div> element with id="piechart"
-                var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-                chart.draw(data, options);
-            }
-        </script>
     </head>
     <body>
         <?php include("includes/navbar.php"); ?>
         <div class="w3-row" style="margin-top: 10%">
-            <div class="search-container center">
-                <form action="/search.php">
-                    <input type="text" placeholder="Cerca.." name="search">
-                    <button type="submit"><i class="fa fa-search"></i></button>
-                </form>
+
+            <div class="center">
+                <div class="search-container">
+                    <form action="/search.php">
+                        <input type="text" placeholder="Cerca.." name="search">
+                        <button type="submit"><i class="fa fa-search"></i></button>
+                    </form>
+                </div>
+                
+                <h1> I tuoi viaggi prenotati: </h1>
             </div>
+            
 
             <div class="w3-col s7 w3-center" style="margin-left: 4%; padding-left: 10%; border-style: solid;">
             </div>
