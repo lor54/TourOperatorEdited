@@ -57,30 +57,31 @@
                     </form>
                 </div>
                 
-                <h1> I tuoi viaggi prenotati: </h1>
+                <?php 
+                    if(isset($result)) { 
+                        echo '<h1> I tuoi viaggi prenotabili: </h1>
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Titolo</th>
+                                        <th>Durata</th>
+                                        <th>Prezzo</th>
+                                    </tr>
+                                </thead>
+                                <tbody>';
+                                    if ($result && $result->num_rows > 0) {
+                                        while($row = $result->fetch_assoc()) {
+                                            echo "<tr><td>".$row["titolo"]."</td><td>".$row["durata"]."</td><td>".$row["prezzo"]."</td></tr>";
+                                        }
+                                    }
+                                echo '
+                                </tbody>
+                            </table>
+                        </div> ';
+                    }
+                ?>
             </div>
-
-            <div class="w3-col s7 w3-center" style="margin-left: 20%; border-style: solid;">
-				<div class="table-responsive">
-					<table class="table table-striped">
-						<thead>
-							<tr>
-								<th>City</th>
-								<th>Address</th>
-								<th>Phone</th>
-							</tr>
-						</thead>
-						<tbody>
-                            <?php if ($result && $result->num_rows > 0) {
-                                while($row = $result->fetch_assoc()) {
-                                    echo "<tr><td>".$row["titolo"]."</td><td>".$row["durata"]."</td><td>".$row["prezzo"]."</td></tr>";
-                                }
-                            }
-                            ?>
-						</tbody>
-					</table>
-				</div>
-			</div>
         </div>
         <?php include("includes/footer.php"); ?>
     </body>
