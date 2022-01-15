@@ -38,9 +38,8 @@
     </head>
     <body>
         <?php include("includes/navbar.php"); ?>
-        <div class="w3-row" style="margin-top: 10%">
 
-            <div class="center">
+        <div class="center">
                 <div class="search-container">
                     <form action="/search.php">
                         <input type="text" placeholder="Cerca.." name="search">
@@ -49,12 +48,9 @@
                 </div>
                 
                 <h1> I tuoi viaggi prenotati: </h1>
-            </div>
-            
-
-            <div class="w3-col s7 w3-center" style="margin-left: 4%; padding-left: 10%; border-style: solid;">
-            </div>
         </div>
+
+        
         <?php include("includes/footer.php"); ?>
     </body>
 </html>
