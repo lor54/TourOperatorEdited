@@ -7,21 +7,11 @@
 		$query = "SELECT * from viaggio where titolo LIKE '$searchInput'";
 
         $result = $conn->query($query);
-        if ($result && $result->num_rows > 0) {
-            while($row = $result->fetch_assoc()) {
-                echo $row;
-            }
-        }
+
         if (!$result) {
             $error = $conn->error;
         }
 	}
-
-    //print_r($titoli);
-    
-    /*while ($graphArr = $result->fetch_array(MYSQLI_ASSOC)) {
-        printf("ID: %s  Name: %s", $graphArr["id"], $graphArr["name"]);
-    }*/
 ?>
 <!DOCTYPE html>
 <html>
@@ -45,7 +35,7 @@
                 </div>
                 
                 <?php 
-                    if(isset($result)) { 
+                    if($result) { 
                         echo '<h1> I tuoi viaggi prenotabili: </h1>
                         <div class="table-responsive">
                             <table class="table table-striped">
@@ -57,7 +47,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>';
-                                    if ($result && $result->num_rows > 0) {
+                                    if ($result->num_rows > 0) {
                                         while($row = $result->fetch_assoc()) {
                                             echo "<tr><td>".$row["titolo"]."</td><td>".$row["durata"]."</td><td>".$row["prezzo"]."</td></tr>";
                                         }
