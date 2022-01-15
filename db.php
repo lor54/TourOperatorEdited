@@ -1,8 +1,8 @@
 <?php
 $servername = "10.6.0.2";
 $username = "touroperator";
-$password = "";
-$database = "touroperator123";
+$password = "touroperator123";
+$database = "touroperator";
 
 $conn = new mysqli($servername, $username, $password, $database);
 
