@@ -3,7 +3,7 @@
     include("auth.php");
 
 	if (isset($_GET['search'])) {
-		$searchInput = $_POST['search'];
+		$searchInput = $_GET['search'];
 		$query = "SELECT * from viaggio where titolo LIKE '$searchInput'";
 
         $result = $conn->query($query);
