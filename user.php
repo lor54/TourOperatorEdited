@@ -4,7 +4,7 @@
 
 	if (isset($_GET['search'])) {
 		$searchInput = $_GET['search'];
-		$query = "SELECT * from viaggio where titolo LIKE '$searchInput'";
+		$query = "SELECT titolo, durata, costo from viaggio where titolo LIKE '$searchInput'";
 
         $result = $conn->query($query);
 
@@ -49,7 +49,7 @@
                                 <tbody>';
                                     if ($result->num_rows > 0) {
                                         while($row = $result->fetch_assoc()) {
-                                            echo "<tr><td>".$row["titolo"]."</td><td>".$row["durata"]."</td><td>".$row["prezzo"]."</td></tr>";
+                                            echo "<tr><td>".$row["titolo"]."</td><td>".$row["durata"]."</td><td>".$row["costo"]."</td></tr>";
                                         }
                                     }
                                 echo '
