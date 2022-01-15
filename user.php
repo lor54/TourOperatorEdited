@@ -59,6 +59,28 @@
                 
                 <h1> I tuoi viaggi prenotati: </h1>
             </div>
+
+            <div class="w3-col s7 w3-center" style="margin-left: 20%; border-style: solid;">
+				<div class="table-responsive">
+					<table class="table table-striped">
+						<thead>
+							<tr>
+								<th>City</th>
+								<th>Address</th>
+								<th>Phone</th>
+							</tr>
+						</thead>
+						<tbody>
+                            <?php if ($result && $result->num_rows > 0) {
+                                while($row = $result->fetch_assoc()) {
+                                    echo "<tr><td>".$row["titolo"]."</td><td>".$row["durata"]."</td><td>".$row["prezzo"]."</td></tr>";
+                                }
+                            }
+                            ?>
+						</tbody>
+					</table>
+				</div>
+			</div>
         </div>
         <?php include("includes/footer.php"); ?>
     </body>
