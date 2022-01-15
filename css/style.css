@@ -113,8 +113,8 @@ input[type='submit']:hover {
 }
 
 .center {
-     margin: auto;
-     width: 50%;
+     width:100%;
+     display: flex;
+     justify-content: center;
      border: 3px solid green;
-     padding: 10px;
 }
