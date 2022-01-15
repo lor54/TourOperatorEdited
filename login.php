@@ -30,7 +30,7 @@ if (isset($_POST['email']))
         $_SESSION['email'] = $email;
         $_SESSION['nome'] = $obj->nome;
         $_SESSION['cognome'] = $obj->cognome;
-
+		$_SESSION['tipo'] = $obj->tipo;
         // Rendirizza a index.php
         header("Location: index.php");
     }
