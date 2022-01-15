@@ -7,6 +7,11 @@
 		$query = "SELECT * from viaggio where titolo LIKE '$searchInput'";
 
         $result = $conn->query($query);
+        if ($result && $result->num_rows > 0) {
+            while($row = $result->fetch_assoc()) {
+                echo $row;
+            }
+        }
         if (!$result) {
             $error = $conn->error;
         }
