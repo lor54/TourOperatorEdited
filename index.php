@@ -2,7 +2,7 @@
     require('db.php');
     include("auth.php");
 
-    $query = "SELECT SUM(COSTO * N_PERSONE) AS fatturato FROM viaggio JOIN prenotare ON viaggio.id = prenotare.id_viaggio";
+    $query = "SELECT SUM(costo * n_persone) AS fatturato FROM viaggio JOIN prenotare ON viaggio.id = prenotare.id_viaggio";
     $result = $conn->query($query) or die($conn->sqlstate);
     $rows = $result->num_rows;
     $obj = $result -> fetch_object();
