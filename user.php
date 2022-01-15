@@ -5,14 +5,12 @@
 	if (isset($_GET['search'])) {
 		$searchInput = $_POST['search'];
 		$query = "SELECT * from viaggio where titolo LIKE '$searchInput'";
-	} else {
-		$query = "SELECT city, address, phone FROM offices";
-	}
-	$result = $conn->query($query);
-	if (!$result) {
-		$error = $conn->error;
-	}
 
+        $result = $conn->query($query);
+        if (!$result) {
+            $error = $conn->error;
+        }
+	}
         $query = "SELECT id_viaggio, titolo, n_persone from prenotare join viaggio on prenotare.id_viaggio = viaggio.id group by titolo";
         $result = $conn->query($query) or die($conn->sqlstate);
 
