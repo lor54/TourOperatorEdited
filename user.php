@@ -11,24 +11,6 @@
             $error = $conn->error;
         }
 	}
-        $query = "SELECT id_viaggio, titolo, n_persone from prenotare join viaggio on prenotare.id_viaggio = viaggio.id group by titolo";
-        $result = $conn->query($query) or die($conn->sqlstate);
-
-        $rows = array();
-        while($row = $result->fetch_array(MYSQLI_ASSOC))
-        {
-            $rows[] = $row;
-        }
-
-        $i = 0;
-        $titoli = array();
-        foreach($rows as $row)
-        {
-            array_push($titoli, array(
-                0 => $row['titolo'],
-                1 => (int) $row['n_persone']
-            ));
-        }
 
     //print_r($titoli);
     
